@@ -1,0 +1,18 @@
+{
+  "name": "redux-example",
+  "version": "1.0.0",
+  "description": "nooooooooop",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-register": "^6.6.5",
+    "react": "^0.14.7",
+    "redux": "^3.3.1",
+    "redux-devtools": "^3.1.1"
+  }
+}
