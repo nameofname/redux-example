@@ -1,4 +1,4 @@
 "use strict";
 
 const redux = require('redux');
-alert('on the client');
+alert('on the faces');

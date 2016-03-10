@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "babel public/js/theFile.js -o public/js/tmp.js; browserify -d public/js/tmp.js > public/js/compiled/theFile-compiled.js ; rm public/js/tmp.js"
+    "build": "webpack public/js/theFile.js public/js/compiled/theFile-compiled.js --watch -d",
+    "go" : "npm run start && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -19,9 +20,11 @@
     "express": "^4.13.4",
     "react": "^0.14.7",
     "redux": "^3.3.1",
-    "redux-devtools": "^3.1.1"
+    "redux-devtools": "^3.1.1",
+    "watchify": "^3.7.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5"
+    "babel-cli": "^6.6.5",
+    "webpack": "^1.12.14"
   }
 }
