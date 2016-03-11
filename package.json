@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "webpack public/js/theFile.js public/js/compiled/theFile-compiled.js --watch -d",
-    "go" : "npm run start && npm run build"
+    "build": "webpack -d --progress --colors --watch"
   },
   "author": "",
   "license": "ISC",

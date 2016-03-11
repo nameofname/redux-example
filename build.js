@@ -5,7 +5,7 @@ var compiler = webpack({// returns a Compiler instance
     watch: true,
     entry : './public/js/theFile.js',
     output : {
-        path: "./public/js/compiled/",
+        path: "./public/compiled/",
         filename: "theFile-compiled.js"
     },
     module: {
@@ -21,6 +21,7 @@ var compiler = webpack({// returns a Compiler instance
         ]
     }
 }, function(err, stats) {
+    return console.log('BEGINNING WEBPACK...');
     if(err) {
         return console.log('HRRRD : Error with webpack bundling.');
     }
@@ -34,9 +35,5 @@ var compiler = webpack({// returns a Compiler instance
     return console.log('SUCCESS! Successfully compiled using Webpack.');
 });
 
-
-//compiler.watch({}, function (err, stats) {
-//    console.log('Do you believe in magic?!', arguments);
-//});
 
 module.exports = compiler;
