@@ -1,7 +1,7 @@
 "use strict";
 
 //alert('on the faces');
-const notesStore = reqiure('./stores/notesStore');
+const notesStore = require('./stores/notesStore');
 
 alert(notesStore.getState());
 alert('flerp');
