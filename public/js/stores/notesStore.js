@@ -1,10 +1,11 @@
 "use strict";
 
 const Redux = require('redux');
-const createStore = { Redux };
+const { createStore } = Redux; // const createStore = Redux.createStore;
+const id = require('lodash.uniqueid');
 
 const newNote = text => {
-    return { id : 123, text : text };
+    return { id : id(), text };
 };
 
 const notesStore = (state = [], action = {}) => {
@@ -19,5 +20,4 @@ const notesStore = (state = [], action = {}) => {
     }
 };
 
-debugger;
 module.exports = createStore(notesStore);

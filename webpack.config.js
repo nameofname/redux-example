@@ -9,11 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, './public/compiled'),
         filename: 'theFile-compiled.js',
         sourceMapFilename: '/' +  '[file].map'
-        //hotUpdateChunkFilename: 'hot/[id].[hash].hot-update.js',
-        //hotUpdateMainFilename: 'hot/[hash].hot-update.json',
-        //publicPath: '/'
     },
-    recordsOutputPath: path.join(__dirname, "/public/compiled/records.json"),
 	module: {
         loaders: [
             {
@@ -26,5 +22,6 @@ module.exports = {
                 }
             }
         ]
-	}
+	},
+    recordsOutputPath: path.join(__dirname, "/public/compiled/records.json")
 };
