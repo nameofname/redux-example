@@ -15,6 +15,14 @@ const notesStore = (state = [], action = {}) => {
                 ...state,
                 newNote(action.text)
             ];
+        case "UPDATE_NOTE":
+            return state.map(note => {
+                return note.id === action.id ? Object.assign(note, { text : action.text }) : note;
+            });
+        case "DELETE_NOTE":
+            return state.filter(note => {
+                return note.id !== action.id
+            });
         default :
             return state;
     }
