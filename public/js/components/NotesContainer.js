@@ -13,7 +13,7 @@ module.exports = React.createClass({
         return (
             <div className='flerp'>This is contents bitch
                 {props.notes.map(note => {
-                    return (<NoteRow id={ note.id } text={ note.text } updateHandler=store.plerp ></NoteRow>)
+                    return (<NoteRow id={ note.id } text={ note.text } updateHandler={ store.plerp }></NoteRow>)
                 })}
             </div>
         );

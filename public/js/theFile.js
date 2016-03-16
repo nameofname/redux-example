@@ -4,7 +4,11 @@
 // create the notes store
 // get the notes component and render that with the store of notes.
 const notesStore = require('./stores/notesStore');
-const notesStore = require('./stores/notesStore');
+const NotesContainer = require('./components/NotesContainer');
+const render = () => {
+    ReactDOM.render(NotesContainer, notesStore.getState());
+    //ReactDOM.render(<NotesContainer notes={...notesStore.getState()} ></NotesContainer>)
+};
 let state;
 
 notesStore.dispatch({
@@ -34,5 +38,6 @@ notesStore.dispatch({
     id : state[1].id
 });
 
+store.subscribe(render);
 
 console.log(notesStore.getState());

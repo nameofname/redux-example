@@ -1,25 +1,30 @@
 "use strict";
 
+
 const Redux = require('redux');
 const { createStore } = Redux; // const createStore = Redux.createStore;
-const id = require('lodash.uniqueid');
-
-const newNote = text => {
-    return { id : id(), text };
+const ActionNames = {
+    ADD_NOTE : 'ADD_NOTE',
+    UPDATE_NOTE : 'UPDATE_NOTE',
+    DELETE_NOTE : 'DELETE_NOTE'
 };
+
 
 const notesStore = (state = [], action = {}) => {
     switch (action.type) {
-        case "ADD_NOTE" :
+        case ActionNames.ADD_NOTE :
             return [
                 ...state,
-                newNote(action.text)
+                {
+                    text : action.text,
+                    id : action.id
+                }
             ];
-        case "UPDATE_NOTE":
+        case ActionNames.UPDATE_NOTE:
             return state.map(note => {
                 return note.id === action.id ? Object.assign(note, { text : action.text }) : note;
             });
-        case "DELETE_NOTE":
+        case ActionNames.DELETE_NOTE:
             return state.filter(note => {
                 return note.id !== action.id
             });
@@ -28,4 +33,7 @@ const notesStore = (state = [], action = {}) => {
     }
 };
 
-module.exports = createStore(notesStore);
+
+const store = createStore(notesStore);
+store.actionNames = ActionNames;
+module.exports = store;
