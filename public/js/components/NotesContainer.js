@@ -1,9 +1,14 @@
 "use strict";
 
-var React = require("React");
-var NoteRow = require("./NoteRow");
 
-module.exports = React.createClass({
+const React = require("react");
+const ReactRedux = require("react-redux");
+const NoteRow = require("./NoteRow");
+const noteActions = require('../actions/noteActions');
+const { connect } = ReactRedux;
+
+
+const component = React.createElement({
     propTypes : {
         notes : React.PropTypes.array,
         addHandler : React.PropTypes.function
@@ -30,3 +35,14 @@ module.exports = React.createClass({
         )
     }
 });
+
+
+const mapStateToProps = (state, props) => {};
+const mapDispatchToProps = {
+    addNote : noteActions.addNote,
+    updateNote : noteActions.updateNote,
+    deleteNote : noteActions.deleteNote
+};
+
+// exports a connected component :
+module.exports = connect(mapStateToProps, mapDispatchToProps)(component);
