@@ -9,8 +9,12 @@ const ActionNames = {
     DELETE_NOTE : 'DELETE_NOTE'
 };
 
+// TODO !!! delete this test note and do not use.
+const testNote = {id : 1, text : "asdfsdf "};
 
-const notesStore = (state = [], action = {}) => {
+// this is my reducer function.
+// note that it's a pure function
+const notesStore = (state = [testNote], action = {}) => {
     switch (action.type) {
         case ActionNames.ADD_NOTE :
             return [
@@ -33,7 +37,7 @@ const notesStore = (state = [], action = {}) => {
     }
 };
 
-
+// create the store with the Redux method createStore
 const store = createStore(notesStore);
 store.actionNames = ActionNames;
 module.exports = store;
