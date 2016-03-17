@@ -15,7 +15,7 @@ const NoteRow = require("./NoteRow");
 // This is the top level component which will receive the store from the Provider in the entry file.
 const NotesContainerComponent = React.createClass({
     propTypes : {
-        notes : React.PropTypes.func.isRequired
+        notes : React.PropTypes.array
     },
     render () {
         debugger;
@@ -37,12 +37,10 @@ const mapStateToProps = (state, props) => {
         notes : state
     };
 };
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addNote : dispatch(noteActions.addNote)
-        //updateNote : noteActions.updateNote,
-        //deleteNote : noteActions.deleteNote
-    };
+const mapDispatchToProps = {
+    //addNote : noteActions.addNote
+    updateNote : noteActions.updateNote
+    //deleteNote : noteActions.deleteNote
 };
 
 
