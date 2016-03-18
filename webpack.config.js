@@ -8,7 +8,7 @@ module.exports = {
     output : {
         path: path.resolve(__dirname, './public/compiled'),
         filename: 'theFile-compiled.js',
-        sourceMapFilename: '/' +  '[file].map'
+        sourceMapFilename: './public/compiled/[file].map'
     },
 	module: {
         loaders: [

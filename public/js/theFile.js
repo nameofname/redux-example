@@ -14,7 +14,7 @@ const { render } = require('react-dom');
 
 
 window.onload = function () {
-    const container = document.querySelectorAll('#container')[0];
+    const container = document.querySelectorAll('#app')[0];
     render(
         <Provider store={notesStore}>
             <App />
