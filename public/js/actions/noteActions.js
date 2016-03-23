@@ -8,14 +8,11 @@ const { actionNames } = notesStore;
 
 module.exports = {
     addNote : (text) => {
-        // return a function that accepts the dispatcher, then dispatches the action. Hence action creator.
-        return (dispatch) => {
-            // put the ID incrementor in here so that the reducer can remain a pure function :
-            return dispatch({
-                type : actionNames.ADD_NOTE,
-                id : id(),
-                text
-            });
+        // put the ID incrementor in here so that the reducer can remain a pure function :
+        return {
+            type : actionNames.ADD_NOTE,
+            id : parseInt(id()),
+            text
         };
     },
     updateNote : (id, text) => {

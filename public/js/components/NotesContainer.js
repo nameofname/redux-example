@@ -1,11 +1,11 @@
 "use strict";
 
 
-const React = require("react");
+const React = require('react');
 const noteActions = require('../actions/noteActions');
 const { connect } = require("react-redux");
-const NoteRow = require("./NoteRow");
-
+const NoteRow = require('./NoteRow');
+const AddNote = require('./AddNote');
 
 // This is the top level component which will receive the store from the Provider in the entry file.
 const NotesContainerComponent = React.createClass({
@@ -17,12 +17,13 @@ const NotesContainerComponent = React.createClass({
     },
     render () {
         return (
-        <div className='flerp'>
-            <h2>This is contents bitch</h2>
-            {this.props.notes.map(note => {
-                return (<NoteRow key={note.id} text={note.text} id={note.id} updateNote={this.props.updateNote} />)
-            })}
-        </div>);
+            <div className='flerp'>
+                <AddNote addNote={this.props.addNote} />
+                <h2>This is contents bitch</h2>
+                {this.props.notes.map(note => {
+                    return (<NoteRow key={note.id} text={note.text} id={note.id} updateNote={this.props.updateNote} />)
+                })}
+            </div>);
     }
 });
 
@@ -34,9 +35,9 @@ const mapStateToProps = (state, props) => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        updateNote : (id, text) => { dispatch(noteActions.updateNote(...arguments)); },
-        addNote : dispatch(noteActions.addNote()),
-        deleteNote : dispatch(noteActions.deleteNote())
+        updateNote : (id, text) => { dispatch(noteActions.updateNote(id, text));},
+        addNote : (text) => { dispatch(noteActions.addNote(text)); },
+        deleteNote : (id) => { dispatch(noteActions.deleteNote(id)); }
     };
 };
 

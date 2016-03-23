@@ -24,8 +24,10 @@ const component = React.createClass({
 
         return (
             <div className='row well'>
-                <p>id : { props.id } text : { props.text }</p>
+                <span>id : { props.id }</span>
+                <p>{ props.text }</p>
                 <br />
+                <span>Update Note : </span>
                 <input ref={ node => {input = node} } type='text' placeholder={ props.text } />
                 <input type='submit' className='btn' value='Update Note' onClick={ e => {
                     e.preventDefault();

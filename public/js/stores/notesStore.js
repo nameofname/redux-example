@@ -9,12 +9,9 @@ const ActionNames = {
     DELETE_NOTE : 'DELETE_NOTE'
 };
 
-// TODO !!! delete this test note and do not use.
-const testNote = {id : 1, text : "asdfsdf "};
-
 // this is my reducer function.
 // note that it's a pure function
-const notesStore = (state = [testNote], action = {}) => {
+const notesStore = (state = [], action = {}) => {
     switch (action.type) {
         case ActionNames.ADD_NOTE :
             return [
