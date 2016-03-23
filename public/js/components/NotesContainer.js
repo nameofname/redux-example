@@ -21,7 +21,13 @@ const NotesContainerComponent = React.createClass({
                 <AddNote addNote={this.props.addNote} />
                 <h2>This is contents bitch</h2>
                 {this.props.notes.map(note => {
-                    return (<NoteRow key={note.id} text={note.text} id={note.id} updateNote={this.props.updateNote} />)
+                    return (<NoteRow
+                        key={note.id}
+                        text={note.text}
+                        id={note.id}
+                        updateNote={this.props.updateNote}
+                        deleteNote={this.props.deleteNote}
+                    />)
                 })}
             </div>);
     }

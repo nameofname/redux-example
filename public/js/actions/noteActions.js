@@ -22,11 +22,9 @@ module.exports = {
         };
     },
     deleteNote : (id) => {
-        return (dispatch) => {
-            return dispatch({
-                type : actionNames.DELETE_NOTE,
-                id
-            })
-        }
+        return {
+            type : actionNames.DELETE_NOTE,
+            id
+        };
     }
 };
